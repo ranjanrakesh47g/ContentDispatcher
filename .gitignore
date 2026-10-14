@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# WhatsApp linked-device session
+whatsapp_session*
+neonize.db
+whatsapp_qr.png

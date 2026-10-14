@@ -37,7 +37,7 @@ The server listens on `http://127.0.0.1:8000`. Each response includes `latency` 
 
 
 
-## Setup
+## Local setup
 
 1. Create the virtual environment and install dependencies.
   ```bash

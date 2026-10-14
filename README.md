@@ -4,6 +4,18 @@ Content Dispatcher sends an OTP, verifies it, and delivers a file link (pdf/imag
 
 WhatsApp messages are sent with Neonize, using a linked device session. SMS messages are sent with SMSGate through the Android application on the sender phone. Generated OTPs are stored in Redis for the expiration-time (in seconds) specified in `config.yml`. A file is uploaded to a temporary host, shortened with TinyURL, and the resulting link is sent as a text message via WhatApp/SMS channel.
 
+## Service comparison
+
+
+| Service | Base plan | Channels and allowance | Remarks |
+| --- | --- | --- | --- |
+| Neonize | • Free, open source. No subscription required. | • WhatsApp only, sent from the linked sender account.<br>• No vendor quota. | • Uses a QR-linked device session.<br>• Not the official WhatsApp Business API. |
+| SMSGate | • Free, open source. No subscription required. | • SMS and MMS from the sender phone's SIM.<br>• Volume follows the carrier plan, not an SMSGate quota. | • Requires the Android app to be installed to stay online.<br>• The app is not available on the Play Store, and needs installation of the official APK from the project releases.<br>• A personal SIM may reject OTP-style text, hence might need a commercial SIM card. |
+| Twilio | • 30-day trial, no card required.<br>• The minimum balance to upgrade is $20, and it is pay-as-you-go.<br>• US SMS starts at $0.0083 per segment plus carrier fees.<br>• WhatsApp starts at $0.005 per message plus Meta fees.<br>• A phone number starts at $1.15 per month. | • SMS, MMS, RCS, WhatsApp, email, and voice.<br>• Trial account inclusions: 100 SMS, 100 WhatsApp messages, 3,000 emails, and 75 voice minutes. | • Official APIs.<br>• Trial use is limited to verified recipients and expires after 30 days.<br>• Trial messages use Twilio's predefined templates.<br>• Custom message text and file attachments are allowed only in the upgraded account. |
+
+
+
+
 ## APIs
 
 The server listens on `http://127.0.0.1:8000`. Each response includes `latency` in milliseconds.
@@ -38,7 +50,6 @@ The server listens on `http://127.0.0.1:8000`. Each response includes `latency` 
     sudo docker run -d --name otp-redis -p 6379:6379 redis:7
   ```
   If that container already exists, start it with `sudo docker start otp-redis`.
-  
 3. For SMS, create a `.env` file in the project root.
   ```
     SMSGATE_USERNAME=
@@ -63,7 +74,6 @@ The server listens on `http://127.0.0.1:8000`. Each response includes `latency` 
     sudo docker run -d --name otp-redis -p 6379:6379 redis:7
   ```
   If that container already exists, start it with `sudo docker start otp-redis`.
-  
 3. Start the container from the project root. `-it` allocates a terminal so the WhatsApp QR code can be displayed on the first login. `--network host` lets the container reach Redis on the host, and `--env-file .env` supplies the SMSGate credentials.
   ```bash
     sudo docker run --rm -it --network host --env-file .env content-dispatcher

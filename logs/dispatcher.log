@@ -128,3 +128,35 @@
 
 {"time": "2026-10-14T19:39:05.491+05:30", "event": "authenticate_otp", "channel": "whatsapp", "number": "916207647854", "otp": "063190", "ok": true, "latency_ms": 1.08}
 
+{"time": "2026-10-14T19:50:23.048+05:30", "event": "connect", "channel": "whatsapp", "latency_ms": 27023.26}
+
+{"time": "2026-10-14T19:50:23.706+05:30", "event": "connect", "channel": "sms", "health": {"status": "pass", "version": "1.49.1", "releaseId": 1577, "checks": {"db:ping": {"description": "Database ping", "observedUnit": "failed pings", "observedValue": 0, "status": "pass"}}}, "latency_ms": 657.71}
+
+{"time": "2026-10-14T19:51:16.206+05:30", "event": "send_file", "channel": "sms", "to": "916207647854", "id": "wZIWomaG5NekoZWAn5Unx", "file": "/tmp/tmpq7pfu4eb/Attention_is_all_you_need.pdf", "url": "https://tinyurl.com/2y9y9bvd", "msg": "https://tinyurl.com/2y9y9bvd", "tinyurl_latency_ms": 2988.76, "latency_ms": 3506.1}
+
+{"time": "2026-10-14T19:51:21.482+05:30", "event": "send_file", "channel": "sms", "to": "916207647854", "id": "NHZkYqv4npuyENo0VUAQ0", "file": "/tmp/tmpngin0lwm/Attention_is_all_you_need.pdf", "url": "https://tinyurl.com/29uwar5q", "msg": "https://tinyurl.com/29uwar5q", "tinyurl_latency_ms": 2489.51, "latency_ms": 3029.77}
+
+{"time": "2026-10-14T19:52:05.876+05:30", "event": "send_file", "channel": "whatsapp", "to": "916207647854", "id": "3EB0AF8F622838F2A959BC", "file": "/tmp/tmpwtxbpctn/Attention_is_all_you_need.pdf", "url": "https://tinyurl.com/298hcgwd", "msg": "https://tinyurl.com/298hcgwd", "tinyurl_latency_ms": 2399.16, "latency_ms": 3133.24}
+
+{"time": "2026-10-14T19:52:52.546+05:30", "event": "send_file", "channel": "whatsapp", "to": "916207647854", "id": "3EB0D7629A0E4267CC1C80", "file": "/tmp/tmp0hmdsxs0/transformers.png", "url": "https://tinyurl.com/24dv5aeu", "msg": "https://tinyurl.com/24dv5aeu", "tinyurl_latency_ms": 1765.79, "latency_ms": 1981.89}
+
+{"time": "2026-10-14T19:57:13.716+05:30", "event": "connect", "channel": "whatsapp", "latency_ms": 1607.48}
+
+{"time": "2026-10-14T19:57:14.289+05:30", "event": "connect", "channel": "sms", "health": {"status": "pass", "version": "1.49.1", "releaseId": 1577, "checks": {"db:ping": {"description": "Database ping", "observedUnit": "failed pings", "observedValue": 0, "status": "pass"}}}, "latency_ms": 573.02}
+
+{"time": "2026-10-14T19:57:21.664+05:30", "event": "send_otp", "channel": "whatsapp", "to": "916207647854", "id": "3EB032C0C564DF294B751A", "msg": "Your code is 262098. It will expire in 20 seconds", "latency_ms": 581.69}
+
+{"time": "2026-10-14T19:57:39.402+05:30", "event": "authenticate_otp", "channel": "whatsapp", "number": "916207647854", "otp": "262098", "ok": true, "latency_ms": 0.44}
+
+{"time": "2026-10-14T19:57:41.906+05:30", "event": "authenticate_otp", "channel": "whatsapp", "number": "916207647854", "otp": "262098", "ok": false, "latency_ms": 0.27}
+
+{"time": "2026-10-14T19:57:57.096+05:30", "event": "send_file", "channel": "whatsapp", "to": "916207647854", "id": "3EB0B25E68495C8D80BA92", "file": "/tmp/tmpqk4wm0x8/transformers.png", "url": "https://tinyurl.com/23lfh5zs", "msg": "https://tinyurl.com/23lfh5zs", "tinyurl_latency_ms": 1723.54, "latency_ms": 1924.13}
+
+{"time": "2026-10-14T19:58:27.191+05:30", "event": "send_file", "channel": "whatsapp", "to": "916207647854", "id": "3EB08BFE397C08B39930FE", "file": "/tmp/tmpnpkww8_k/Attention_is_all_you_need.pdf", "url": "https://tinyurl.com/27aybv87", "msg": "https://tinyurl.com/27aybv87", "tinyurl_latency_ms": 3694.96, "latency_ms": 3895.3}
+
+{"time": "2026-10-14T19:59:00.509+05:30", "event": "send_otp", "channel": "sms", "to": "916207647854", "id": "4uCc-Y29phzrbP6EGD9eY", "msg": "Your code is 942328. It will expire in 20 seconds", "latency_ms": 567.59}
+
+{"time": "2026-10-14T19:59:23.283+05:30", "event": "send_file", "channel": "sms", "to": "916207647854", "id": "MfwqRgtEbfj-J6Bre7pEt", "file": "/tmp/tmpbjqc18zz/Attention_is_all_you_need.pdf", "url": "https://tinyurl.com/22nwadfc", "msg": "https://tinyurl.com/22nwadfc", "tinyurl_latency_ms": 5399.32, "latency_ms": 6019.96}
+
+{"time": "2026-10-14T20:00:20.822+05:30", "event": "send_file", "channel": "sms", "to": "916207647854", "id": "SaWW_qtC2oCeoiG0nSiIb", "file": "/tmp/tmp1j6uc5gj/transformers.png", "url": "https://tinyurl.com/26r38ur6", "msg": "https://tinyurl.com/26r38ur6", "tinyurl_latency_ms": 5061.32, "latency_ms": 5625.43}
+

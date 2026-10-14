@@ -53,9 +53,9 @@ The server listens on `http://127.0.0.1:8000`. Each response includes `latency` 
   
 3. Set up SMSGate on the sender phone, then create a `.env` file in the project root.
 
-    a. Download **SMS Gateway for Android** from the official releases page: https://github.com/capcom6/android-sms-gateway/releases. The app is not on the Play Store. Use the standard APK, not the build marked insecure.
+    a. Download **SMS Gate app for Android** from [GitHub](https://github.com/capcom6/android-sms-gateway/releases) or the [website](https://sms-gate.app/). The app is not on the Play Store. Use the standard APK, not the build marked insecure.
    
-    b. If Play Protect blocks the install, open Google Play Store → profile → Play Protect → settings, turn off **Scan apps with Play Protect**, install the APK, then turn the scan back on.
+    b. If Play Protect blocks the install, open Google Play Store → profile → Play Protect → settings, turn off **Play Protect**, install the APK, then turn the scan back on.
    
     c. Open the app, turn on **Cloud server**, and copy the username and password from the home screen into a `.env` file in the project root: `SMSGATE_USERNAME` and `SMSGATE_PASSWORD`
 

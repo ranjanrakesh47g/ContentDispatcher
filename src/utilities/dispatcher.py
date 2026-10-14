@@ -9,6 +9,7 @@ from datetime import datetime
 from pathlib import Path
 import redis
 import requests
+import yaml
 from neonize.aioze.client import NewAClient
 from neonize.aioze.events import ConnectedEv
 
@@ -23,12 +24,16 @@ if not log.handlers:
     log.propagate = False
 
 
+def load_config():
+    return yaml.safe_load(Path("config.yml").read_text())
+
+
 class Dispatcher:
     channel = None
 
-    def __init__(self, otp_ttl=20):
+    def __init__(self, otp_ttl=None):
         self.redis = redis.Redis(decode_responses=True)
-        self.otp_ttl = otp_ttl
+        self.otp_ttl = int(load_config()["OTP_TTL"]) if otp_ttl is None else otp_ttl
 
     @staticmethod
     def number(to):
@@ -85,7 +90,7 @@ class Dispatcher:
 class WhatsappDispatcher(Dispatcher):
     channel = "whatsapp"
 
-    def __init__(self, session="whatsapp_session", otp_ttl=20):
+    def __init__(self, session="whatsapp_session", otp_ttl=None):
         super().__init__(otp_ttl)
         self.client = NewAClient(session)
 
@@ -108,7 +113,7 @@ class WhatsappDispatcher(Dispatcher):
 class SmsDispatcher(Dispatcher):
     channel = "sms"
 
-    def __init__(self, otp_ttl=20):
+    def __init__(self, otp_ttl=None):
         super().__init__(otp_ttl)
         self.url = os.environ.get("SMSGATE_URL", "https://api.sms-gate.app/3rdparty/v1")
         self.auth = (os.environ["SMSGATE_USERNAME"], os.environ["SMSGATE_PASSWORD"])

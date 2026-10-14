@@ -1,0 +1,8 @@
+.venv
+.git
+Notebooks
+logs
+**/.env
+whatsapp_session*
+whatsapp_qr.png
+*.crdownload

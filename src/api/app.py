@@ -1,8 +1,10 @@
+import tempfile
 import time
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Literal
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.responses import JSONResponse as jsonify
 from src.utilities import SmsDispatcher, WhatsappDispatcher
 
@@ -49,7 +51,18 @@ async def authenticate_otp(channel: Literal["whatsapp", "sms"], number: str, otp
 
 
 @app.post("/send_file")
-async def send_file(channel: Literal["whatsapp", "sms"], to: str, filepath: str):
+async def send_file(
+    channel: Literal["whatsapp", "sms"] = Form(),
+    to: str = Form(),
+    file: UploadFile = File(),
+):
     start = time.perf_counter()
-    await dispatchers[channel].send_file(filepath, to)
+    folder = Path(tempfile.mkdtemp())
+    path = folder / Path(file.filename or "upload").name
+    path.write_bytes(await file.read())
+    try:
+        await dispatchers[channel].send_file(str(path), to)
+    finally:
+        path.unlink(missing_ok=True)
+        folder.rmdir()
     return jsonify({"ok": True, "latency": latency(start)})

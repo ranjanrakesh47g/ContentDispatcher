@@ -104,3 +104,17 @@
 
 {"time": "2026-10-14T18:59:13.653+05:30", "event": "send_file", "channel": "whatsapp", "to": "916207647854", "id": "3EB0F2CB6E924852E65837", "file": "/home/rakesh/Downloads/ShortTok/4.ContentDispatcher/ContentDispatcher/data/Attention_is_all_you_need.pdf", "url": "https://tinyurl.com/287qr5gz", "msg": "https://tinyurl.com/287qr5gz", "tinyurl_latency_ms": 2418.75, "latency_ms": 2642.2}
 
+{"time": "2026-10-14T19:27:23.995+05:30", "event": "connect", "channel": "whatsapp", "latency_ms": 1415.71}
+
+{"time": "2026-10-14T19:27:24.473+05:30", "event": "connect", "channel": "sms", "health": {"status": "pass", "version": "1.49.1", "releaseId": 1577, "checks": {"db:ping": {"description": "Database ping", "observedUnit": "failed pings", "observedValue": 0, "status": "pass"}}}, "latency_ms": 477.98}
+
+{"time": "2026-10-14T19:27:36.105+05:30", "event": "send_otp", "channel": "whatsapp", "to": "916207647854", "id": "3EB009E70173F518FEA4E0", "msg": "Your code is 691542. It will expire in 20 seconds", "latency_ms": 549.21}
+
+{"time": "2026-10-14T19:27:46.788+05:30", "event": "authenticate_otp", "channel": "whatsapp", "number": "916207647854", "otp": "691542", "ok": true, "latency_ms": 0.49}
+
+{"time": "2026-10-14T19:27:47.790+05:30", "event": "authenticate_otp", "channel": "whatsapp", "number": "916207647854", "otp": "691542", "ok": true, "latency_ms": 0.33}
+
+{"time": "2026-10-14T19:28:07.450+05:30", "event": "send_file", "channel": "whatsapp", "to": "916207647854", "id": "3EB08C84429CE90D4A55AC", "file": "/tmp/tmpznwhs43j/transformers.png", "url": "https://tinyurl.com/28moo2rw", "msg": "https://tinyurl.com/28moo2rw", "tinyurl_latency_ms": 2104.76, "latency_ms": 2356.81}
+
+{"time": "2026-10-14T19:28:46.994+05:30", "event": "send_file", "channel": "sms", "to": "916207647854", "id": "shIYo8aTqolZaHAPh7QEW", "file": "/tmp/tmp5rsxpcrp/transformers.png", "url": "https://tinyurl.com/239g7n5c", "msg": "https://tinyurl.com/239g7n5c", "tinyurl_latency_ms": 1687.24, "latency_ms": 2154.04}
+

@@ -118,3 +118,13 @@
 
 {"time": "2026-10-14T19:28:46.994+05:30", "event": "send_file", "channel": "sms", "to": "916207647854", "id": "shIYo8aTqolZaHAPh7QEW", "file": "/tmp/tmp5rsxpcrp/transformers.png", "url": "https://tinyurl.com/239g7n5c", "msg": "https://tinyurl.com/239g7n5c", "tinyurl_latency_ms": 1687.24, "latency_ms": 2154.04}
 
+{"time": "2026-10-14T19:38:06.941+05:30", "event": "connect", "channel": "whatsapp", "latency_ms": 37964.26}
+
+{"time": "2026-10-14T19:38:07.463+05:30", "event": "connect", "channel": "sms", "health": {"status": "pass", "version": "1.49.1", "releaseId": 1577, "checks": {"db:ping": {"description": "Database ping", "observedUnit": "failed pings", "observedValue": 0, "status": "pass"}}}, "latency_ms": 521.42}
+
+{"time": "2026-10-14T19:38:40.373+05:30", "event": "send_otp", "channel": "whatsapp", "to": "916207647854", "id": "3EB0D381442E583CF8F986", "msg": "Your code is 151149. It will expire in 20 seconds", "latency_ms": 686.43}
+
+{"time": "2026-10-14T19:38:50.593+05:30", "event": "send_otp", "channel": "whatsapp", "to": "916207647854", "id": "3EB0BBA7B9C01FD018C537", "msg": "Your code is 063190. It will expire in 20 seconds", "latency_ms": 323.0}
+
+{"time": "2026-10-14T19:39:05.491+05:30", "event": "authenticate_otp", "channel": "whatsapp", "number": "916207647854", "otp": "063190", "ok": true, "latency_ms": 1.08}
+

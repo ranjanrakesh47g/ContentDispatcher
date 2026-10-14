@@ -7,7 +7,6 @@ import re
 import time
 from datetime import datetime
 from pathlib import Path
-
 import redis
 import requests
 from neonize.aioze.client import NewAClient
@@ -72,7 +71,7 @@ class Dispatcher:
         start = time.perf_counter()
         number = self.number(number)
         ok = self.redis.get(number) == str(otp)
-        self._log("authenticate_otp", start, to=number, otp=str(otp), ok=ok)
+        self._log("authenticate_otp", start, number=number, otp=str(otp), ok=ok)
         return ok
 
     async def send_file(self, filepath, to):
@@ -114,18 +113,24 @@ class SmsDispatcher(Dispatcher):
         self.url = os.environ.get("SMSGATE_URL", "https://api.sms-gate.app/3rdparty/v1")
         self.auth = (os.environ["SMSGATE_USERNAME"], os.environ["SMSGATE_PASSWORD"])
 
+    async def _request(self, method, path, **kwargs):
+        def call():
+            r = requests.request(method, f"{self.url}{path}", auth=self.auth, timeout=30, **kwargs)
+            r.raise_for_status()
+            return r.json()
+
+        return await asyncio.to_thread(call)
+
     async def connect(self):
         start = time.perf_counter()
-        r = requests.get(f"{self.url}/health", auth=self.auth)
-        r.raise_for_status()
-        self._log("connect", start, health=r.json())
+        health = await self._request("GET", "/health")
+        self._log("connect", start, health=health)
 
     async def send_txt_msg(self, msg, to):
         number = self.number(to)
-        r = requests.post(
-            f"{self.url}/messages",
-            auth=self.auth,
+        body = await self._request(
+            "POST",
+            "/messages",
             json={"textMessage": {"text": msg}, "phoneNumbers": ["+" + number]},
         )
-        r.raise_for_status()
-        return r.json()["id"]
+        return body["id"]

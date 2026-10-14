@@ -50,6 +50,7 @@ The server listens on `http://127.0.0.1:8000`. Each response includes `latency` 
     sudo docker run -d --name otp-redis -p 6379:6379 redis:7
   ```
   If that container already exists, start it with `sudo docker start otp-redis`.
+  
 3. For SMS, create a `.env` file in the project root.
   ```
     SMSGATE_USERNAME=
@@ -74,6 +75,7 @@ The server listens on `http://127.0.0.1:8000`. Each response includes `latency` 
     sudo docker run -d --name otp-redis -p 6379:6379 redis:7
   ```
   If that container already exists, start it with `sudo docker start otp-redis`.
+  
 3. Start the container from the project root. `-it` allocates a terminal so the WhatsApp QR code can be displayed on the first login. `--network host` lets the container reach Redis on the host, and `--env-file .env` supplies the SMSGate credentials.
   ```bash
     sudo docker run --rm -it --network host --env-file .env content-dispatcher
